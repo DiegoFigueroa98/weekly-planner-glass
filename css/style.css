@@ -1,0 +1,291 @@
+/* 
+  ********************************************************************************************************************************************
+  *********************************************************** Mobile Design ******************************************************************
+  ********************************************************************************************************************************************
+*/
+
+/* 
+  ***********************************
+  ************ Variables ************
+  ***********************************
+*/
+
+:root{
+  --primary-color: rgb(199, 76, 133);
+  --secondary-color: rgb(36, 36, 36);
+  --containers-padding: clamp(1.2rem, 2vw, 2rem);
+  --grid-gap-containers: clamp(1.2rem, 2vw, 1.5rem);
+  --containers-bord-rad: 1.5rem;
+  --circle-bord-rad: 50%;
+}
+
+/* 
+  *********************************
+  ******** General Styles *********
+  ********************************* 
+*/
+
+* {
+  margin: 0rem;
+  padding: 0rem;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: linear-gradient(to right top, #fdeaf2, #fbdae8, #f9cade, #f6bad5, #f3aacb);
+  font-family: 'Rubik', sans-serif;
+  color: var(--secondary-color);
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+.main-container {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  display: grid;
+  gap: var(--grid-gap-containers);
+  padding: var(--containers-padding);
+  width: 100%;
+}
+
+.title {
+  font-size: 2em;
+  font-weight: 500;
+  margin-bottom: 0.5em;
+}
+
+.description {
+  font-size: 1.14em;
+  font-weight: 400;
+  margin-bottom: 1em;
+}
+
+.glassmorphic-effect {
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.55),
+    rgba(255, 255, 255, 0.3)
+  );
+  box-shadow: 0 8px 32px 0 rgba(33, 35, 65, 0.1);
+  backdrop-filter: blur(1rem);
+  border-radius: var(--containers-bord-rad);
+}
+
+.low-glass-effect {
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.6),
+    rgba(255, 255, 255, 0.0)
+  );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.05);
+}
+
+.high-glass-effect {
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0.1)
+  );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.05);
+}
+
+/* 
+  *********************************
+  ************ Bubbles ************
+  ********************************* 
+*/
+
+.bubble.glassmorphic-effect {
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0.3)
+  );
+  border-radius: var(--circle-bord-rad);
+  position: absolute;
+}
+
+.bubble-one {
+  height: 80px;
+  left: 300px;
+  top: 10px;
+  width: 80px;
+}
+
+.bubble-two {
+  height: 230px;
+  right: 200px;
+  top: -8%;
+  width: 230px;
+}
+
+.bubble-three {
+  height: 50px;
+  right: 450px;
+  top: -20px;
+  width: 50px;
+}
+
+.bubble-four {
+  bottom: 40px;
+  height: 100px;
+  left: -30px;
+  width: 100px;
+}
+
+/* 
+  *********************************
+  ******** Objectives list ********
+  ********************************* 
+*/
+
+.objectives-list-container {
+  padding: var(--containers-padding);
+  width: 100%;
+}
+
+.objectives-list {
+  list-style-type: none;
+}
+
+.objective-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1em;
+}
+
+.objective-item .icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--circle-bord-rad);
+  margin-right: 0.8em;
+  height: clamp(4em, 4vw, 5em);
+  width:  clamp(4em, 4vw, 5em);
+}
+
+.icon {
+  width: clamp(3em, 3vw, 4em);
+  padding: clamp(0.3em, 1vw, 0.3em);
+}
+
+.clock-icon {
+  display: none;
+}
+
+/* 
+  *********************************
+  ******** Weekly Planner *********
+  ********************************* 
+*/
+
+.weekly-planner-container {
+  padding: var(--containers-padding);
+  width: 100%;
+}
+
+.week-day {
+  margin-bottom: 1.5em;
+}
+
+.week-day .title {
+  font-size: 1.5em;
+  margin-bottom: 0.7em;
+}
+
+/* 
+  *********************************
+  ************* Cards *************
+  ********************************* 
+*/
+
+.card {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: 1fr;
+  margin-bottom: 1em;
+  height: 6.25em;
+  width: 100%;
+}
+
+.card > div:first-child {
+  align-items: center;
+  border-radius: var(--containers-bord-rad);
+  display: flex;
+  display: grid;
+  grid-template-columns: inherit;
+  grid-template-rows: inherit;
+  justify-items: center;
+  grid-column: 1/-1;
+  grid-row: 1/2;
+  z-index: 1;
+}
+
+.card > div:first-child p {
+  color: var(--primary-color);
+  grid-column: 1/2;
+  transform: rotate(180deg);
+  writing-mode: vertical-rl;
+}
+
+.card > div:last-child {
+  border-radius: var(--containers-bord-rad);
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+  align-items: center;
+  grid-column: 2/-1;
+  grid-row: 1/2;
+  padding: var(--grid-gap-containers);
+  z-index: 2;
+}
+
+.card .task {
+  font-weight: 500;
+  font-size: 1.3em;
+}
+
+/* 
+  *********************************
+  ************* Footer ************
+  ********************************* 
+*/
+
+footer p{
+  font-size: 0.9em;
+  font-weight: 400;
+}
+
+footer p span {
+  color: var(--primary-color);
+}
+
+
+/* 
+  ********************************************************************************************************************************************
+  *********************************************************** Desktop Design ******************************************************************
+  ********************************************************************************************************************************************
+*/
+
+@media (min-width: 800px) {
+  .main-container {
+    grid-template-columns: 1fr 3fr;
+    width: 85%;
+  }
+
+  .week-day {
+    margin-bottom: 0.4em;
+  }
+
+  .days-list-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--grid-gap-containers);
+  }
+
+  .card {
+    margin-bottom: var(--grid-gap-containers);
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+}
