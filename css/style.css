@@ -13,8 +13,8 @@
 :root{
   --primary-color: rgb(199, 76, 133);
   --secondary-color: rgb(36, 36, 36);
-  --containers-padding: clamp(1.2rem, 2vw, 2rem);
-  --grid-gap-containers: clamp(1.2rem, 2vw, 1.5rem);
+  --containers-padding: 1.2em;
+  --grid-gap-containers: 1.2em;
   --containers-bord-rad: 1.5rem;
   --circle-bord-rad: 50%;
 }
@@ -26,11 +26,9 @@
 */
 
 * {
-  margin: 0rem;
-  padding: 0rem;
-  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-
 
 html {
   height: 100%;
@@ -38,16 +36,17 @@ html {
 
 body {
   background-image: linear-gradient(to right top, #fdeaf2, #fbdae8, #f9cade, #f6bad5, #f3aacb);
-  font-family: 'Rubik', sans-serif;
   color: var(--secondary-color);
   display: grid;
+  font-family: 'Rubik', sans-serif;
+  font-size: 16px;
   place-items: center;
   height: 100%;
 }
 
 .main-container {
-  font-size: clamp(1rem, 2vw, 1.2rem);
   display: grid;
+  font-size: 1em;
   gap: var(--grid-gap-containers);
   padding: var(--containers-padding);
   width: 100%;
@@ -56,24 +55,24 @@ body {
 .title {
   font-size: 2em;
   font-weight: 500;
-  margin-bottom: 0.5em;
+  margin-bottom: 1rem;
 }
 
 .description {
   font-size: 1.14em;
   font-weight: 400;
-  margin-bottom: 1em;
+  margin-bottom: 1rem;
 }
 
 .glassmorphic-effect {
+  backdrop-filter: blur(1rem);
   background: linear-gradient(
     to right bottom,
     rgba(255, 255, 255, 0.55),
     rgba(255, 255, 255, 0.3)
   );
-  box-shadow: 0 8px 32px 0 rgba(33, 35, 65, 0.1);
-  backdrop-filter: blur(1rem);
   border-radius: var(--containers-bord-rad);
+  box-shadow: 0 8px 32px 0 rgba(33, 35, 65, 0.1);
 }
 
 .low-glass-effect {
@@ -102,13 +101,11 @@ body {
 */
 
 .objectives-list-container {
+  font-size: 1em;
   padding: var(--containers-padding);
   width: 100%;
 }
 
-.objectives-list {
-  list-style-type: none;
-}
 
 .objective-item {
   display: flex;
@@ -142,17 +139,18 @@ body {
 */
 
 .weekly-planner-container {
+  font-size: 1em;
   padding: var(--containers-padding);
   width: 100%;
 }
 
 .week-day {
-  margin-bottom: 1.5em;
+  margin-bottom: 2em;
 }
 
 .week-day .title {
   font-size: 1.5em;
-  margin-bottom: 0.7em;
+  margin-bottom: 1rem;
 }
 
 /* 
@@ -175,9 +173,10 @@ body {
   border-radius: var(--containers-bord-rad);
   display: flex;
   display: grid;
+  font-size: 1em;
+  justify-items: center;
   grid-template-columns: inherit;
   grid-template-rows: inherit;
-  justify-items: center;
   grid-column: 1/-1;
   grid-row: 1/2;
   z-index: 1;
@@ -191,11 +190,12 @@ body {
 }
 
 .card > div:last-child {
+  align-items: center;
   border-radius: var(--containers-bord-rad);
   display: flex;
   flex-direction: column-reverse;
+  font-size: 1em;
   justify-content: space-between;
-  align-items: center;
   grid-column: 2/-1;
   grid-row: 1/2;
   padding: var(--grid-gap-containers);
@@ -230,6 +230,14 @@ footer p span {
 */
 
 @media (min-width: 800px) {
+  :root{
+    --containers-padding: 1.7em;
+  }
+
+  body {
+    font-size: 19px;
+  }
+
   .main-container {
     grid-template-columns: 1fr 3fr;
     width: 85%;
